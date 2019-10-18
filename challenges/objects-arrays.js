@@ -80,8 +80,7 @@ const graduates = [
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universitiesSorted = [];
 for (let i = 0; i < graduates.length; i++){
-  let universities = graduates[i].university;
-  universitiesSorted.push(universities);
+  universitiesSorted.push(graduates[i].university);
 }
 universitiesSorted.sort();
 console.log(universitiesSorted);
@@ -93,18 +92,20 @@ The resulting contact information strings should have a space between the first 
 
 Log the result of your new array. */
 const contactInfo = [];
-graduates.forEach(graduate => {
-  return contactInfo.push(`${graduate.first_name} ${graduate.email}`);
-})
+graduates.forEach(graduate =>  contactInfo.push(`${graduate.first_name} ${graduate.email}`))
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
-graduates.filter(hasUni => {
-  if (hasUni.university.includes("Uni")){
-    return unisWithUni.push(`${hasUni.university}`);
-  }
-})
+// const unisWithUni = [];
+// graduates.filter(hasUni => {
+//   if (hasUni.university.includes("Uni")){
+//     return unisWithUni.push(`${hasUni.university}`);
+//   }
+// })
+// console.log(unisWithUni);
+const unisWithUni = graduates.filter(hasUni => {
+    return hasUni.university.includes("Uni")
+});
 console.log(unisWithUni);
 
 // ==== ADVANCED Array Methods ====
@@ -130,9 +131,7 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-zooAnimals.forEach(animal => {
-  return displayNames.push(`Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}.`)
-})
+zooAnimals.forEach(animal =>  displayNames.push(`Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}.`))
 console.log(displayNames);
 
 /* Request 2: .map()
@@ -149,12 +148,14 @@ console.log(lowCaseAnimalNames);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = [];
-zooAnimals.filter(low => {
-  if (low.population < 5){
-    return lowPopulationAnimals.push(`${low.animal_name}`)
-  }
-});
+// const lowPopulationAnimals = [];
+// zooAnimals.filter(low => {
+//   if (low.population < 5){
+//     return lowPopulationAnimals.push(`${low.animal_name}`)
+//   }
+// });
+// console.log(lowPopulationAnimals);
+const lowPopulationAnimals = zooAnimals.filter(low => low.population < 5);
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
